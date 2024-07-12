@@ -66,6 +66,7 @@ class StoreImpl implements Store {
 
   String getExistingAnonymousId() {
     var anonymousId = localStorage.getItem("ajs_anonymous_id");
+    anonymousId = json.decode(anonymousId ?? "");
 
     if (anonymousId?.isEmpty ?? true) {
       final cookies = web.document.cookie.split(";");
